@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    container_name: currencies-app
+    restart: always
+    working_dir: /var/www
+    volumes:
+      - ../app:/var/www
+  
+  nginx:
+    image: nginx:1.19-alpine
+    container_name: currencies-nginx
+    restart: always
+    ports:
+      - "8000:80"
+    volumes:
+      - ../app:/var/www
+      - ./nginx:/etc/nginx/conf.d
+  db:
+    container_name: currencies-db
+    image: mysql:8.0
+    volumes:
+      - ./storage/mysql:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+  cron:
+    container_name: cron
+    build: 
+      context: ./bash
+      dockerfile: Dockerfile
+    volumes:
+      - ../app:/var/www
+      - ./log/cron:/var/log/cron
+  

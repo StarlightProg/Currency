@@ -2,7 +2,7 @@
 
 use App\Database;
 
-
+include_once __DIR__ . '/phpQuery.php';
 require __DIR__.'/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -64,7 +64,7 @@ foreach ($currencies_table as $tr) {
         $skipFirst = false;
         continue;
     }
-    $stmt = mysqli_stmt_init($sqlconn);
+    $stmt = mysqli_stmt_init($db);
     mysqli_stmt_prepare($stmt,$sql);
 
     $amount = pq($tr)->find("td:eq(2)")->text();

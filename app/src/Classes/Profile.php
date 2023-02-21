@@ -9,7 +9,7 @@
             return View::make('profile')->render();
         }
 
-        public static function get_currencies(){
+        public static function get_currencies(){ //выводит данные о курсе валют
             $db = Database::db();
 
             $sql ="SELECT * FROM currencies;";

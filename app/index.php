@@ -1,5 +1,5 @@
 <?php
-	//require "scripts/log.php";
+
 
 use App\App;
 use App\Classes\Login;
@@ -15,9 +15,9 @@ $dotenv->load();
 
 $router = new Router();
 
-define('VIEW_PATH',__DIR__.'/views');
+define('VIEW_PATH',__DIR__.'/views'); //путь к html документам
 
-$router 
+$router //маршрутизатор между страницами
 	->get('/',[Login::class,'index'])
 	->get('/registration',[Registration::class,'index'])
 	->get('/profile',[Profile::class,'index'])

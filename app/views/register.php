@@ -4,9 +4,10 @@
 	<title></title>
 </head>
 <body>
-		<?php if(!empty($_GET["error"])): ?>
+		<?php if(!empty($_GET["error"])): ?> 
 			<p style="display:inline-block;background-color:red;color:white">
 				<?php
+					//проверка ошибок 
 					switch ($_GET["error"]) {
 						case 'emptyinput':
 							echo "Все поля должны быть заполнены!";

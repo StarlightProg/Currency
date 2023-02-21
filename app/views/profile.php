@@ -16,7 +16,7 @@ use App\Classes\Profile;
 	
 	<p>Курс валют</p>
 	<?php
-		var_dump(Profile::get_currencies());
+		Profile::get_currencies();
 	?>
 </body>
 </html>

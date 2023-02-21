@@ -21,11 +21,11 @@
             }
             if($data = $this->uidExists($db,$login)){
                 $passwordDB = $data["pwd"];
-                $checkPassword = password_verify($password,$passwordDB);
+                $checkPassword = password_verify($password,$passwordDB); // проверка пароля
                 if($checkPassword){
                     session_start();
                     $_SESSION["login"] = $data["login"];
-                    header("location: /profile");
+                    header("location: /profile"); // перенаправляет в профиль
                 }
                 else{
                     header("location: /?error=wrongpassword");
@@ -40,13 +40,13 @@
             return View::make('register')->render();
         }
 
-        protected function purifyData(string $str){
+        protected function purifyData(string $str){ //защита от инъекций
             $_POST[$str] ??= '';
     
             return htmlspecialchars(stripslashes($_POST[$str]));
         }
 
-        protected function emptyInputSignup($login,$password):bool{
+        protected function emptyInputSignup($login,$password):bool{ //проверить есть ли пустое поле
             foreach(func_get_args() as $param){
                 if(empty($param)){
                     return true;
@@ -55,7 +55,7 @@
             return false;
         }
 
-        protected function uidExists($db,$login){
+        protected function uidExists($db,$login){ //проверить существует ли пользователь с таким логином
             $sql ="SELECT * FROM users WHERE login = ?";
             $stmt = mysqli_stmt_init($db);
             if(!mysqli_stmt_prepare($stmt,$sql)){

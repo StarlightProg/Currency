@@ -1,4 +1,5 @@
 <?php
+//Обновляем данные в таблице с валютами
 
 include_once __DIR__ . '/phpQuery.php';
 require __DIR__.'/vendor/autoload.php';

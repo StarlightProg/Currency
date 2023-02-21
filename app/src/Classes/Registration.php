@@ -9,7 +9,7 @@ class Registration{
     public function index():string{
         return View::make('register')->render();
     }
-    //?string $login,?string $email,?string $password
+
     public function register(){
         $db = Database::db();
 
@@ -37,7 +37,7 @@ class Registration{
         return htmlspecialchars(stripslashes($_POST[$str]));
     }
 
-    protected function emptyInputSignup($login,$email,$password):bool{
+    protected function emptyInputSignup($login,$email,$password):bool{ //проверить есть ли пустое поле
         foreach(func_get_args() as $param){
             if(empty($param)){
                 return true;
@@ -46,7 +46,7 @@ class Registration{
         return false;
     }
 
-    protected function uidExists($db,$login,$email):bool{
+    protected function uidExists($db,$login,$email):bool{ //проверить существует ли пользователь с таким логином
         $sql ="SELECT * FROM users WHERE login = ? or email = ?";
         $stmt = mysqli_stmt_init($db);
         if(!mysqli_stmt_prepare($stmt,$sql)){
@@ -69,7 +69,7 @@ class Registration{
         mysqli_stmt_close($stmt);
     }
 
-    protected function createUser($db,$login,$email,$password):bool{
+    protected function createUser($db,$login,$email,$password):bool{ //создать нового пользователя
         $sql ="INSERT INTO users(login,email,pwd) VALUES (?,?,?);";
         $stmt = mysqli_stmt_init($db);
         if(!mysqli_stmt_prepare($stmt,$sql)){
@@ -77,7 +77,7 @@ class Registration{
             exit();
         }
 
-        $password = password_hash($password,PASSWORD_DEFAULT);
+        $password = password_hash($password,PASSWORD_DEFAULT); //хеширование пароля
 
         mysqli_stmt_bind_param($stmt,"sss",$login,$email,$password);
         mysqli_stmt_execute($stmt);

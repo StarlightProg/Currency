@@ -1,5 +1,5 @@
 <?php
-
+//Настройка подключения к бд
 namespace App;
 
 use PDO;

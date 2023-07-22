@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www
+    ports:
+      - 8000:80
+    depends_on:
+      - db
+      - cron
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: currenciesDB
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 1234
+    ports:
+      - 3306:3306
+  cron:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www
+    depends_on:
+      - db
+    command: cron -f

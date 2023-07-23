@@ -6,4 +6,4 @@ require_once 'vendor/autoload.php';
 
 $currencyModel = new Currencies();
 
-var_dump($currencyModel->parse_currencies());
+$currencyModel->add_currencies();

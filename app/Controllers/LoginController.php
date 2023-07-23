@@ -32,8 +32,6 @@ class LoginController extends Controller{
         }
 
         if($data = $model->user_login($login, $password)){
-            var_dump($data);
-            session_start();
             $_SESSION["id"] = $data["id"];
             $_SESSION["login"] = $data["login"];
             header("location: /profile/{$data["id"]}"); // перенаправляет в профиль

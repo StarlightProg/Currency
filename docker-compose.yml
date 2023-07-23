@@ -5,12 +5,12 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 80:80
+      - 8000:80
     volumes:
-      - .:/var/www
+      - .:/var/www/html
     depends_on:
       - db
-      - cron
+      # - cron
     networks:
       - app-network
 
@@ -31,10 +31,10 @@ services:
   cron:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-Cron
     volumes:
-      - .:/var/www
-    command: cron -f
+      - .:/var/www/html
+      - ./log/cron:/var/log/cron
     networks:
       - app-network
 

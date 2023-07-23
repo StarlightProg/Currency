@@ -15,7 +15,6 @@ class ProfileController extends Controller{
         }
         
         if(($this->route['id'] != $_SESSION['id'])){
-            return $this->view->redirect('/');
             header("location: /profile/{$_SESSION['id']}"); // перенаправляет в профиль
         }
 
@@ -29,6 +28,8 @@ class ProfileController extends Controller{
     public function logout(){
         // var_dump($this->route['id']);
         session_destroy();
+        session_start();
+
 
         return $this->view->redirect('/');
     }

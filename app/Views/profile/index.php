@@ -2,7 +2,6 @@
 
 use App\Classes\Profile;
 
-    session_start();
 ?>
 <!DOCTYPE html>
 <html>

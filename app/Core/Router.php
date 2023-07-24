@@ -24,18 +24,6 @@ class Router {
     }
 
     public function match() {
-        //$url = explode('?', trim($_SERVER['REQUEST_URI'], '/'))[0];
-        // $url = trim($_SERVER['REQUEST_URI'], '/');
-        // var_dump($url);
-        // foreach ($this->routes as $route => $params) {
-        //     if (preg_match($route, $url, $matches)) {
-        //         $this->params = $params;
-        //         return true;
-        //     }
-        // }
-        // return false;
-
-
         $url = explode('?', trim($_SERVER['REQUEST_URI'], '/'))[0];
         foreach ($this->routes as $route => $params) {
             if (preg_match($route, $url, $matches)) {

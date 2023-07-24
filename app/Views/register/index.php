@@ -41,6 +41,6 @@
 			</div>
 		</form>	
 
-		<a href="/"><button style="width: 150px;">Логиниться</button></a>
+		<a href="/"><button style="width: 150px;">Логин</button></a>
 </body>
 </html>

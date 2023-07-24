@@ -18,13 +18,10 @@ class View {
 	public function render($title, $vars = []) {
 		extract($vars);
 		$path = 'app/Views/'.$this->path.'.php';
-		// var_dump($path);
-        // var_dump($path);
 		if (file_exists($path)) {
 			ob_start();
 			require $path;
 			$content = ob_get_clean();
-            //var_dump($content);
 			require 'app/Views/layouts/'.$this->layout.'.php';
 		}
 	}

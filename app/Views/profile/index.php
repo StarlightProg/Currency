@@ -11,74 +11,46 @@ use App\Classes\Profile;
 <body>
 	<p>Приветствую, <?= $_SESSION["login"] ?></p>
 	<a href="logout"><button>Выйти</button></a>
-	<a href="/profile?convert=true"><button>Конвертировать</button></a>
-
-	<?php 
-		var_dump($vars['currencies']);
-	?>
+	<button onclick="convertCurrency()">Конвертировать</button>
 	
 	<p>Курс валют</p>
-	<?php
-		function getCurrencyRate()
-		{
-			$url = 'https://www.cbr.ru/scripts/XML_daily.asp';
-		
-			// Инициализируем cURL-сессию
-			$curl = curl_init($url);
-		
-			// Устанавливаем опции для cURL-сессии
-			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		
-			// Выполняем запрос
-			$response = curl_exec($curl);
-		
-			// Закрываем cURL-сессию
-			curl_close($curl);
-		
-			// Проверяем, удалось ли выполнить запрос
-			if ($response !== false) {
-				// Используем библиотеку SimpleXML для разбора XML-данных
-				$xml = simplexml_load_string($response);
-
-				$currencies = [];
-
-				//var_dump($xml);
-
-				foreach ($xml->Valute as $value) {
-					
-					$currencies[(string) $value->NumCode] = [
-						"CharCode" => (string) $value->CharCode,
-						"Nominal" => (string) $value->Nominal,
-						"Name" => (string) $value->Name,
-						"Value" => (string) $value->Value,
-					];
-				}
-		
-				return $currencies;
-			}
-		
-			return null;
-		}
-		
-		// Пример использования функции для получения текущего курса валют
-		$currencyRates = getCurrencyRate();
-		// if ($currencyRates !== null) {
-		// 	echo "Курс доллара: " . $currencyRates['usd'] . "\n";
-		// 	echo "Курс евро: " . $currencyRates['euro'] . "\n";
-		// } else {
-		// 	echo "Не удалось получить данные о курсах валют\n";
-		// }
-	?>
 	<table>
-		<?php foreach ($currencyRates as $key => $val): ?>
-			<tr>
-				<td><?=$key?></td>
+		<tr>
+			<th>Цифр. код</th>
+			<th>Букв. код</th>
+			<th>Единиц</th>
+			<th>Валюта</th>
+			<th id="course-title">Курс</th>
+		</tr>
+		<?php foreach ($vars['currencies'] as $val): ?>
+			<tr class="<?=$val["Value"]?>">
+				<td><?=$val["NumCode"]?></td>
 				<td><?=$val["CharCode"]?></td>
-				<td><?=$val["Nominal"]?></td>
+				<td class="td-nominal" data-value="<?=$val["Nominal"]?>"><?=$val["Nominal"]?></td>
 				<td><?=$val["Name"]?></td>
-				<td><?=$val["Value"]?></td>
+				<td class="td-value" data-value="<?=$val["Nominal"]?>"><?=$val["Value"]?></td>
 			</tr>
 		<?php endforeach; ?>
 	</table>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script>
+		var currencyValue = document.getElementsByClassName("currency-value");
+		
+		function convertCurrency(){
+			$( ".td-value" ).each(function( index ) {
+				let nominal = Number($( this ).attr("data-value"));
+				let course = Number( $( this ).text().replace(',', '.') );
+				$( this ).text( String((nominal / course * nominal).toFixed(4)).replace('.', ','));
+			});
+
+			if ($("#course-title").text() === "Курс") {
+				$("#course-title").text("Курс в рублях");
+			} else {
+				$("#course-title").text("Курс");
+			}
+		}
+	</script>
 </body>
 </html>

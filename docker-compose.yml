@@ -10,7 +10,6 @@ services:
       - .:/var/www/html
     depends_on:
       - db
-      # - cron
     networks:
       - app-network
 
@@ -22,7 +21,7 @@ services:
       - db_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: dbname
+      MYSQL_DATABASE: currencyDB
       MYSQL_USER: dbuser
       MYSQL_PASSWORD: dbpass
     networks:

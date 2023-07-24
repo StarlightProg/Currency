@@ -17,15 +17,4 @@ WORKDIR /var/www/html/
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Установка зависимостей проекта
 RUN composer install
-
-#RUN ./vendor/bin/doctrine-migrations migrate
-
-#RUN chmod +x /var/www/html/update-currencies.php
-
-#RUN echo "* * * * * php /var/www/html/update-currencies.php >> /dev/null 2>&1" >> /etc/cron.d/cron
-
-#CMD cron && tail -f /var/www/html/var/log/cron.log
-
-# RUN chown -R www-data:www-data /var/www/html/

@@ -8,9 +8,9 @@ $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 return [
-    'dbname' => 'currencydb',
-    'user' => 'root',
-    'password' => 'root',
-    'host' => 'db',
-    'driver' => "pdo_mysql",
+    'dbname' => $_ENV['DB_DATABASE'],
+    'user' => $_ENV['DB_USER'],
+    'password' => $_ENV['DB_PASS'],
+    'host' => $_ENV['DB_HOST'],
+    'driver' => $_ENV['DB_DRIVER'],
 ];

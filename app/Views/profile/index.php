@@ -14,6 +14,7 @@ use App\Classes\Profile;
 	<button onclick="convertCurrency()">Конвертировать</button>
 	
 	<p>Курс валют</p>
+	<p>Последнее обновление <?= $vars['currencies'][0]['created_at'] ?></p>
 	<table>
 		<tr>
 			<th>Цифр. код</th>

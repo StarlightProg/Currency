@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Migrations;
 
-require_once '../vendor/autoload.php';
-
 use App\Models\Currencies;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\DBAL\Schema\Schema;
@@ -33,7 +31,9 @@ final class Version20230721230132 extends AbstractMigration
         $currencies->addColumn('created_at', Types::DATETIME_MUTABLE);   
 
         $currencies->setPrimaryKey(['NumCode']);
+    }
 
+    public function postUp(Schema $schema): void{
         $currencyModel = new Currencies();
 
         $currencyModel->add_currencies();

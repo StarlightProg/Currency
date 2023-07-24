@@ -1037,3 +1037,95 @@ Stack trace:
 #2 /var/www/html/update-currencies.php(9): App\Models\Currencies->add_currencies()
 #3 {main}
   thrown in /var/www/html/app/Core/Model.php on line 29
+
+Warning: require_once(vendor/autoload.php): Failed to open stream: No such file or directory in /var/www/html/update-currencies.php on line 5
+
+Fatal error: Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /var/www/html/update-currencies.php:5
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/update-currencies.php on line 5
+
+Warning: require_once(vendor/autoload.php): Failed to open stream: No such file or directory in /var/www/html/update-currencies.php on line 5
+
+Fatal error: Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /var/www/html/update-currencies.php:5
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/update-currencies.php on line 5
+
+Warning: require_once(vendor/autoload.php): Failed to open stream: No such file or directory in /var/www/html/update-currencies.php on line 5
+
+Fatal error: Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /var/www/html/update-currencies.php:5
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/update-currencies.php on line 5
+
+Warning: require_once(vendor/autoload.php): Failed to open stream: No such file or directory in /var/www/html/update-currencies.php on line 5
+
+Fatal error: Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/usr/local/lib/php') in /var/www/html/update-currencies.php:5
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/update-currencies.php on line 5
+
+Fatal error: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'currencydb.currencies' doesn't exist in /var/www/html/app/Core/Model.php:29
+Stack trace:
+#0 /var/www/html/app/Core/Model.php(29): PDOStatement->execute()
+#1 /var/www/html/app/Models/Currencies.php(32): App\Core\Model->query('TRUNCATE TABLE ...')
+#2 /var/www/html/update-currencies.php(9): App\Models\Currencies->add_currencies()
+#3 {main}
+  thrown in /var/www/html/app/Core/Model.php on line 29
+
+Fatal error: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'currencydb.currencies' doesn't exist in /var/www/html/app/Core/Model.php:29
+Stack trace:
+#0 /var/www/html/app/Core/Model.php(29): PDOStatement->execute()
+#1 /var/www/html/app/Models/Currencies.php(32): App\Core\Model->query('TRUNCATE TABLE ...')
+#2 /var/www/html/update-currencies.php(9): App\Models\Currencies->add_currencies()
+#3 {main}
+  thrown in /var/www/html/app/Core/Model.php on line 29
+
+Fatal error: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'currencydb.currencies' doesn't exist in /var/www/html/app/Core/Model.php:29
+Stack trace:
+#0 /var/www/html/app/Core/Model.php(29): PDOStatement->execute()
+#1 /var/www/html/app/Models/Currencies.php(32): App\Core\Model->query('TRUNCATE TABLE ...')
+#2 /var/www/html/update-currencies.php(9): App\Models\Currencies->add_currencies()
+#3 {main}
+  thrown in /var/www/html/app/Core/Model.php on line 29
+
+Fatal error: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'currencydb.currencies' doesn't exist in /var/www/html/app/Core/Model.php:29
+Stack trace:
+#0 /var/www/html/app/Core/Model.php(29): PDOStatement->execute()
+#1 /var/www/html/app/Models/Currencies.php(32): App\Core\Model->query('TRUNCATE TABLE ...')
+#2 /var/www/html/update-currencies.php(9): App\Models\Currencies->add_currencies()
+#3 {main}
+  thrown in /var/www/html/app/Core/Model.php on line 29
+
+Fatal error: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'currencydb.currencies' doesn't exist in /var/www/html/app/Core/Model.php:29
+Stack trace:
+#0 /var/www/html/app/Core/Model.php(29): PDOStatement->execute()
+#1 /var/www/html/app/Models/Currencies.php(32): App\Core\Model->query('TRUNCATE TABLE ...')
+#2 /var/www/html/update-currencies.php(9): App\Models\Currencies->add_currencies()
+#3 {main}
+  thrown in /var/www/html/app/Core/Model.php on line 29
+
+Fatal error: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'currencydb.currencies' doesn't exist in /var/www/html/app/Core/Model.php:29
+Stack trace:
+#0 /var/www/html/app/Core/Model.php(29): PDOStatement->execute()
+#1 /var/www/html/app/Models/Currencies.php(32): App\Core\Model->query('TRUNCATE TABLE ...')
+#2 /var/www/html/update-currencies.php(9): App\Models\Currencies->add_currencies()
+#3 {main}
+  thrown in /var/www/html/app/Core/Model.php on line 29
+
+Fatal error: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'currencydb.currencies' doesn't exist in /var/www/html/app/Core/Model.php:29
+Stack trace:
+#0 /var/www/html/app/Core/Model.php(29): PDOStatement->execute()
+#1 /var/www/html/app/Models/Currencies.php(32): App\Core\Model->query('TRUNCATE TABLE ...')
+#2 /var/www/html/update-currencies.php(9): App\Models\Currencies->add_currencies()
+#3 {main}
+  thrown in /var/www/html/app/Core/Model.php on line 29
+
+Fatal error: Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'currencydb.currencies' doesn't exist in /var/www/html/app/Core/Model.php:29
+Stack trace:
+#0 /var/www/html/app/Core/Model.php(29): PDOStatement->execute()
+#1 /var/www/html/app/Models/Currencies.php(32): App\Core\Model->query('TRUNCATE TABLE ...')
+#2 /var/www/html/update-currencies.php(9): App\Models\Currencies->add_currencies()
+#3 {main}
+  thrown in /var/www/html/app/Core/Model.php on line 29

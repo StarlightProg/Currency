@@ -18,10 +18,8 @@ services:
     volumes:
       - ./db_data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: currencydb
-      MYSQL_USER: dbuser
-      MYSQL_PASSWORD: dbpass
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+      MYSQL_DATABASE: ${DB_DATABASE}
     networks:
       - app-network
 

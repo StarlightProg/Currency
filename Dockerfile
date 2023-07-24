@@ -11,10 +11,13 @@ RUN a2enmod rewrite
 
 RUN docker-php-ext-install pdo_mysql
 
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+COPY composer.json /var/www/html
+COPY composer.lock /var/www/html
+
+RUN composer install
+
 COPY . /var/www/html/
 
 WORKDIR /var/www/html/
-
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-RUN composer install

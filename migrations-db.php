@@ -8,7 +8,7 @@ $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 return [
-    'dbname' => 'dbname',
+    'dbname' => 'currencydb',
     'user' => 'root',
     'password' => 'root',
     'host' => 'db',

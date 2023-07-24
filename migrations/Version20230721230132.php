@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Migrations;
 
+require_once '../vendor/autoload.php';
+
+use App\Models\Currencies;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
@@ -31,6 +34,9 @@ final class Version20230721230132 extends AbstractMigration
 
         $currencies->setPrimaryKey(['NumCode']);
 
+        $currencyModel = new Currencies();
+
+        $currencyModel->add_currencies();
     }
 
     public function down(Schema $schema): void
